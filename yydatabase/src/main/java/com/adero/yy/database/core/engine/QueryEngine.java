@@ -19,7 +19,7 @@ public class QueryEngine implements DataBaseEngine {
             String tableName = mySqlSelectQueryBlock.getFrom().toString();
             TableInfo tableInfo = YYTables.getYyTables().get(tableName);
             if(tableInfo==null){
-                throw new RuntimeException(tableInfo + "not exsit");
+                throw new RuntimeException(tableName + " not exsit");
             }
             System.out.println(JSON.toJSONString(tableInfo.getTableData()));
         }else{

@@ -11,6 +11,15 @@ public class TableInfo {
         this.tableData = new RowSet();
     }
 
+    public boolean exsitCol(String colName){
+        for(CellInfo cellInfo :rowInfo.getCellInfos()){
+            if(colName.equals(cellInfo.getCellName())){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public RowInfo getRowInfo() {
         return rowInfo;
     }

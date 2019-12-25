@@ -27,7 +27,14 @@ public class InsertEngine implements DataBaseEngine {
         Row row = new Row();
         for(int i=0;i<sqlInsertStatement.getColumns().size();i++){
             Cell cell = new Cell();
-            cell.setColName(sqlInsertStatement.getColumns().get(i).toString());
+            String colName = sqlInsertStatement.getColumns().get(i).toString();
+            //check col name
+            if(tableInfo.exsitCol(colName)){
+                cell.setColName(colName);
+            }else{
+                throw new RuntimeException(colName + " not exsit");
+            }
+
             String colVal = sqlInsertStatement.getValuesList().get(i).getValues().get(0).toString();
             cell.setColVal(colVal);
             cell.setColSize(colVal.length());

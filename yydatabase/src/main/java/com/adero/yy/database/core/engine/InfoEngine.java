@@ -18,7 +18,7 @@ public class InfoEngine implements DataBaseEngine{
             RowInfo rowInfo = tableInfo.getRowInfo();
             System.out.println(JSON.toJSONString(rowInfo));
         }else{
-            System.out.println(tableName+" not exsit");
+            throw new RuntimeException(tableName+" not exsit");
         }
     }
 }
